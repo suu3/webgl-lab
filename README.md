@@ -18,11 +18,14 @@ npm run dev
 | 7 · Rotation | 중심을 원점으로 옮기고 `rotateUV()`로 사각형을 회전한다. 세로 비율과 회전 방향을 바꿔 본다. |
 | 8 · Polar | `length`와 `atan`으로 거리·각도를 구해 꽃잎을 만든다. 꽃잎 수·회전·`pow`로 날카로움을 조절한다. |
 | 9 · Noise | `floor`, `fract`, `mix`, `smoothstep`으로 3D Value Noise를 만들고 링을 변형한다. 강도·공간 주파수·속도를 바꿔 본다. |
+| 10 · UV Distortion | 노이즈로 UV 좌표를 움직여 수직 줄무늬를 일렁이게 한다. 강도·방향·속도와 노이즈·물결·혼합 방식을 비교한다. |
 | Week 02 · Breathing Halo | 원 → 호흡 → 링·발광으로 확장한다. `uniform`으로 시간·마우스 좌표를 전달해 포인터 근처를 변형한다. |
 
-각 레슨은 `src/lessons/`에 있다. Day 4~9은 `index.js`가 TSL 실행본이고 GLSL 비교본이 함께 있다.
+각 레슨은 `src/lessons/`에 있다. Day 4~10은 `index.js`가 TSL 실행본이고 GLSL 비교본이 함께 있다.
 Breathing Halo는 하단에서 완성본·실습용을 선택하고 `fragment.practice.glsl`의 TODO를 채운다.
 
 ```sh
 npm run build
 ```
+
+Day 10은 현재 Three.js에 `snoise` export가 없어 Day 9의 3D Value Noise를 재사용한다. 왜곡 강도 0 또는 Y 방향만 선택하면 원래 수직 줄무늬를 확인할 수 있다.

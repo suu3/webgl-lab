@@ -10,6 +10,7 @@ const lessons = {
   'day07-rotation': ['Day 7 · Rotation', () => import('./lessons/day07-rotation')],
   'day08-polar': ['Day 8 · Polar', () => import('./lessons/day08-polar')],
   'day09-noise': ['Day 9 · Noise', () => import('./lessons/day09-noise')],
+  'day10-uv-distortion': ['Day 10 · UV Distortion', () => import('./lessons/day10-uv-distortion')],
   'week02-breathing-halo': ['Week 02 · Breathing Halo', () => import('./lessons/week02-breathing-halo')],
 }
 const requested = new URLSearchParams(location.search).get('lesson')
