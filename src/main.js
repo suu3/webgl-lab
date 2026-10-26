@@ -11,6 +11,8 @@ const lessons = {
   'day08-polar': ['Day 8 · Polar', () => import('./lessons/day08-polar')],
   'day09-noise': ['Day 9 · Noise', () => import('./lessons/day09-noise')],
   'day10-uv-distortion': ['Day 10 · UV Distortion', () => import('./lessons/day10-uv-distortion')],
+  'day11-vertex-deformation': ['Day 11 · Vertex Deformation', () => import('./lessons/day11-vertex-deformation')],
+  'day12-texture-mouse': ['Day 12 · Texture & Mouse', () => import('./lessons/day12-texture-mouse')],
   'week02-breathing-halo': ['Week 02 · Breathing Halo', () => import('./lessons/week02-breathing-halo')],
 }
 const requested = new URLSearchParams(location.search).get('lesson')

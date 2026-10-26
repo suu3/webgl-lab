@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#101b54"/><stop offset=".55" stop-color="#b46baf"/><stop offset="1" stop-color="#ffcfa0"/></linearGradient>
+    <linearGradient id="sea" x2="0" y2="1"><stop stop-color="#449aaf"/><stop offset="1" stop-color="#071b48"/></linearGradient>
+    <pattern id="grid" width="50" height="40" patternUnits="userSpaceOnUse"><path d="M0 0H50V40" fill="none" stroke="#b1edee" stroke-opacity=".25" stroke-width="2"/></pattern>
+  </defs>
+  <path fill="url(#sky)" d="M0 0h1200v800H0z"/>
+  <circle cx="780" cy="280" r="125" fill="#ffdaa8"/>
+  <path d="M0 460L150 260 300 420 460 200 700 490 940 340 1200 470V800H0Z" fill="#23315e"/>
+  <path d="M0 490L210 380 420 510 650 350 870 500 1080 380 1200 470V800H0Z" fill="#285675"/>
+  <path d="M0 510H1200V800H0Z" fill="url(#sea)"/>
+  <path d="M0 510H1200V800H0Z" fill="url(#grid)"/>
+  <g fill="none" stroke="#b0f3e5" stroke-width="3" opacity=".65">
+    <path d="M40 550Q230 525 440 550T850 550T1260 550M-70 595Q140 565 350 595T770 595T1190 595M20 660Q230 620 440 660T860 660T1280 660M-80 740Q160 680 400 740T880 740T1360 740"/>
+  </g>
+  <text x="60" y="110" fill="#e6f5ff" font-family="sans-serif" font-size="28" letter-spacing="9">RIPPLE / TEXTURE LAB</text>
+  <text x="60" y="155" fill="#e6f5ff" font-family="sans-serif" font-size="18" letter-spacing="3">MOVE YOUR POINTER ACROSS THE LANDSCAPE</text>
+</svg>
