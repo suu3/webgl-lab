@@ -13,6 +13,8 @@ const lessons = {
   'day10-uv-distortion': ['Day 10 · UV Distortion', () => import('./lessons/day10-uv-distortion')],
   'day11-vertex-deformation': ['Day 11 · Vertex Deformation', () => import('./lessons/day11-vertex-deformation')],
   'day12-texture-mouse': ['Day 12 · Texture & Mouse', () => import('./lessons/day12-texture-mouse')],
+  'day13-chromatic-aberration': ['Day 13 · Chromatic Aberration', () => import('./lessons/day13-chromatic-aberration')],
+  'day14-refraction-distortion': ['Day 14 · Refraction Distortion', () => import('./lessons/day14-refraction-distortion')],
   'week02-breathing-halo': ['Week 02 · Breathing Halo', () => import('./lessons/week02-breathing-halo')],
 }
 const requested = new URLSearchParams(location.search).get('lesson')

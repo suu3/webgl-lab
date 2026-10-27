@@ -21,9 +21,11 @@ npm run dev
 | 10 · UV Distortion | 노이즈로 UV 좌표를 움직여 수직 줄무늬를 일렁이게 한다. 강도·방향·속도와 노이즈·물결·혼합 방식을 비교한다. |
 | 11 · Vertex Deformation | `positionLocal`과 `positionNode`로 80×80 격자의 실제 정점을 움직인다. 진폭·주파수·속도·방향과 파도·Value Noise·혼합을 비교한다. |
 | 12 · Texture & Mouse | 이미지 텍스처를 샘플링하고 포인터 주변 UV를 물결처럼 왜곡한다. 범위·강도·주파수·속도, 방사형·수평 방향과 이동 속도 반응을 비교한다. |
+| 13 · Chromatic Aberration | RGB 채널을 서로 다른 UV에서 샘플링해 색수차를 만든다. 강도·범위·방향과 가장자리·마우스 주변 적용을 비교한다. |
+| 14 · Refraction Distortion | 원형 렌즈 마스크로 배경 UV를 이동한다. 확대·축소, 반지름·경계 부드러움, 마우스 이동과 테두리를 비교한다. |
 | Week 02 · Breathing Halo | 원 → 호흡 → 링·발광으로 확장한다. `uniform`으로 시간·마우스 좌표를 전달해 포인터 근처를 변형한다. |
 
-각 레슨은 `src/lessons/`에 있다. Day 4~12는 `index.js`가 TSL 실행본이고 GLSL 비교본이 함께 있다.
+각 레슨은 `src/lessons/`에 있다. Day 4~14는 `index.js`가 TSL 실행본이고 GLSL 비교본이 함께 있다.
 Breathing Halo는 하단에서 완성본·실습용을 선택하고 `fragment.practice.glsl`의 TODO를 채운다.
 
 ```sh
@@ -35,3 +37,7 @@ Day 10은 현재 Three.js에 `snoise` export가 없어 Day 9의 3D Value Noise�
 Day 11은 `?lesson=day11-vertex-deformation`에서 선택한다. XY 평면의 Z좌표를 변형하며 기본 진폭은 0.18이다. 진폭 0은 평면, 속도 0은 정지한 표면이다. 대각선은 기본 주파수 8에서 `8x + 5y`를 사용한다. 격자·면 표시로 실루엣 변화를 비교할 수 있다. GLSL 비교본은 `ShaderMaterial`용이며 `uTime`, `uAmplitude`, `uFrequency`, `uSpeed`, `uDirectionY`, `uWaveAmount`, `uNoiseAmount`를 TSL 제어값과 동일하게 전달한다. 현재 `snoise` export가 없어 Day 9·10과 같은 Value Noise를 사용한다. GPU 정점 변형은 원본 position 배열이나 조명용 법선을 자동 갱신하지 않는다.
 
 Day 12는 `?lesson=day12-texture-mouse`에서 선택한다. 저장소에 포함한 `public/textures/sample.svg`를 sRGB 텍스처로 읽으며 외부 이미지 요청은 없다. 이미지 위에서 마우스를 움직이거나 터치하면 물결이 생기고, 이미지 밖으로 나가거나 터치를 놓으면 원본으로 돌아온다. 기본 범위 0.3·강도 0.015·주파수 60·속도 6을 조절하며, 강도 0으로 원본과 비교한다. '이동 속도 + 감쇠' 모드는 포인터 이동 거리를 시간으로 나눈 속도를 최대 2로 제한하고, 멈추면 효과를 감쇠시킨다. 화면 비율을 보정해 영향 범위를 원형으로 유지하고 샘플링 UV는 0~1로 제한한다. GLSL 비교본은 `ShaderMaterial`용이며 `uTexture`와 주석에 기재된 uniform을 별도로 연결한다.
+
+Day 13은 `?lesson=day13-chromatic-aberration`에서 선택한다. Day 12의 로컬 이미지를 재사용하며 기본 강도는 0.012다. 강도 0은 원본, 0.04는 강한 RGB 분리다. 가장자리 모드는 시작 거리 0.1에서 최대 거리 0.65까지 효과가 증가하고, 마우스 주변 모드는 포인터 범위 0.25 안에서만 효과가 나타난다. 방향은 방사형·수평으로 비교할 수 있다. 포인터 이탈·터치 종료 시 마우스 모드의 효과가 사라진다. 거리는 첨부 수식과 동일한 UV 기준이다. GLSL 비교본은 ShaderMaterial용이며 주석의 uniform을 별도로 연결한다.
+
+Day 14는 `?lesson=day14-refraction-distortion`에서 선택한다. 기본 강도 -0.28은 확대, +0.2는 축소, 0은 원본이다. 기본 반지름 0.32·부드러움 0.1은 안쪽 0.22부터 바깥쪽 0.32까지 전환되는 마스크다. 가로형 이미지 비율을 거리 계산에 반영해 원형 렌즈를 유지한다. 원형 렌즈·이미지 전체 모드로 마스크의 역할을 비교하고 테두리 하이라이트를 켤 수 있다. 마우스 따라가기 모드는 터치도 지원하며 포인터 이탈·터치 종료 시 중앙으로 돌아온다. 실제 광선 추적 대신 한 장의 이미지 UV를 왜곡하는 근사 효과다. GLSL 비교본은 ShaderMaterial용이며 주석의 uniform을 별도로 연결한다.
