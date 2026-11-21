@@ -26,7 +26,7 @@ nav, .controls {
   color: #cceaf2;
   font: 13px/1.5 system-ui, sans-serif;
 }
-nav { top: 16px; }
+nav { top: 16px; max-height: 24vh; overflow-y: auto; }
 nav a, .controls label {
   background: #08151ee8;
   border: 1px solid #284552;
@@ -39,3 +39,18 @@ nav a[aria-current] { border-color: #70e0ed; color: #fff; }
 .controls { bottom: 16px; align-items: center; }
 .controls select { margin-left: 8px; font: inherit; }
 .error { position: fixed; top: 35%; color: white; padding: 24px; }
+.sphere-controls { max-height: 42vh; overflow-y: auto; }
+.sphere-note { flex-basis: 100%; margin: 0; }
+.sphere-controls label { display: flex; flex-direction: column; gap: 4px; }
+.sphere-controls input { max-width: 100%; }
+.sphere-controls button { background: #08151e; color: #cceaf2; border: 1px solid #284552; border-radius: 6px; padding: 10px 16px; font: inherit; cursor: pointer; }
+.refraction-controls { max-height: 42vh; overflow-y: auto; }
+.refraction-note { flex-basis: 100%; margin: 0; }
+.refraction-controls label { display: flex; flex-direction: column; gap: 4px; }
+.refraction-controls button { background: #08151e; color: #cceaf2; border: 1px solid #284552; border-radius: 6px; padding: 10px 16px; font: inherit; cursor: pointer; }
+@media (max-width: 600px), (max-height: 600px) {
+  .sphere-lesson nav { max-height: 24vh; overflow-y: auto; }
+  .sphere-controls { max-height: 36vh; }
+  .refraction-lesson nav { max-height: 24vh; overflow-y: auto; }
+  .refraction-controls { max-height: 36vh; }
+}
